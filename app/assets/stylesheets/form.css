@@ -1,0 +1,63 @@
+.spacer {
+    clear:both;
+    height:1px;
+}
+
+/*.myform {*/
+    /*width: 100%;*/
+/*}*/
+
+/* ----------- stylized ----------- */
+/*#stylized {*/
+    /*width: 100%;*/
+    /*padding-right: 30px;*/
+    /*border: solid 2px #b7ddf2;*/
+    /*background: #ebf4fb;*/
+/*}*/
+
+#stylized h1 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#stylized p {
+    font-size: 11px;
+    color: #666666;
+    margin-bottom: 20px;
+    border-bottom: solid 1px #b7ddf2;
+    padding-bottom: 10px;
+}
+
+#stylized label {
+    position: relative;
+    font-weight: bold;
+    float: left;
+    width: 150px;
+    text-align: right;
+    top: 7px;
+    margin-right: 10px;
+}
+
+#stylized input {
+    font-size: 12px;
+    float: left;
+    padding: 4px 2px;
+    border: solid 1px #aacfe4;
+    width: 200px;
+}
+
+#stylized .button {
+    width: 100px;
+    position: relative;
+    top: -35px;
+    margin-top: 10px;
+    margin-left: 176px;
+}
+
+#stylized a {
+    display: block;
+    color: #888888;
+    margin-left: 5px;
+    margin-top: 5px;
+}

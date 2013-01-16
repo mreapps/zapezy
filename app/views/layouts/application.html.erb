@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zapezy.com :: WebTv made easy</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag "form", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+  <link rel="shortcut icon" href="favicon.ico?v=2"/>
+  <script type="text/javascript">
+      $(function() {
+          $( ".birthday" ).datepicker({
+              changeMonth: true,
+              changeYear: true,
+              maxDate: 0,
+              defaultDate: "-30y",
+              firstDay: 1,
+              dateFormat: "mm/dd/yy"
+          });
+      });
+
+      $(document).mouseup(function (e) {
+          var container1 = $("#usermenu");
+
+          if (container1.has(e.target).length == 0) {
+              container1.hide();
+          }
+      });
+
+      function showUsermenu() {
+          $("#usermenu").show();
+      }
+  </script>
+</head>
+<body>
+<div id="canvas">
+  <div id="header">
+    <div id="logo">
+      <img src="/assets/logo_new_white.png" width="50px"/>
+      <span style="font-size: 30px; position:absolute; top: 0; left: 70px;">
+        <%= link_to "zapezy.com", root_path %>
+      </span>
+      <span style="font-size: 12px; position:absolute; top: 35px; left: 70px;">WebTv made easy</span>
+    </div>
+
+    <div id="searchwrapper">
+      <form action="">
+        <input type="text" placeholder="<%=t :search_placeholder %>" class="searchbox" name="s" value=""/>
+        <input type="image" src="/assets/find.png" class="searchbox_submit" value=""/>
+      </form>
+    </div>
+
+    <div id="userinfo">
+      <% if user_signed_in? %>
+          <div id="userbutton" style="cursor: pointer;" onclick="showUsermenu()">
+            <%= current_user.firstname %>&nbsp<%= current_user.lastname %>
+            <img src="/assets/cog.png" width="13px" style="position:relative;top: 2px;">
+          </div>
+
+          <div id="usermenu">
+            <ul>
+              <li><%= link_to t("edit_account"), edit_user_registration_path %></li>
+              <li>TODO: <%= t :change_password %></li>
+              <li><%= link_to t("sign_out"), destroy_user_session_path, :method => :delete %></li>
+            </ul>
+          </div>
+      <% else %>
+          <%= link_to t("sign_in_wrapped"), new_user_session_path %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+  <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+  <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+
+  <div id="content">
+    <%= yield %>
+  </div>
+
+  <div id="footer">
+    zapezy.com
+  </div>
+</div>
+
+</body>
+</html>

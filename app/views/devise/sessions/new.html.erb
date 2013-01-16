@@ -1,0 +1,31 @@
+<div id="stylized" class="myform">
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :id => "form") do |f| %>
+      <h1><%=t :sign_in %></h1>
+
+      <p><%=t :sign_in_subtitle %></p>
+
+      <div style="width: 300px;">
+
+        <% @label_width = "width: 60px" %>
+
+        <div>
+          <%= f.label :email, :style => @label_width %>
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
+
+        <div>
+          <%= f.label :password, :style => @label_width %>
+          <%= f.password_field :password %>
+        </div>
+
+        <div class="spacer"></div>
+
+        <%= link_to t("new_user"), new_user_registration_path %>
+        <%= link_to t("forgot_password"), new_user_password_path %>
+
+        <%= f.submit t("sign_in"), :class => "button" %>
+        <div class="spacer"></div>
+      </div>
+
+  <% end %>
+</div>

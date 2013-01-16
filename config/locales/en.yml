@@ -1,0 +1,26 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  sign_in: "Sign In"
+  sign_up: "Sign Up"
+  try_without_signing_up: "Try it out without signing up"
+  edit_account: "Edit account"
+  sign_out: "Sign out"
+  welcome_message: "Welcome to zapezy"
+  welcome_message_extra: "Search for video from different providers and share with your friends."
+  sign_in_wrapped: ">> Sign In <<"
+  edit_profile: "Edit profile"
+  change_password: "Change password"
+  search_placeholder: "Search..."
+  new_user: "New user?"
+  forgot_password: "Forgot your password?"
+  sign_in_subtitle: "Type your email and password for signing in"
+  sign_up_subtitle: "Type in user details to sign up"
+  lost_confirmation_email: "Lost confirmation email?"
+  female: "Female"
+  male: "Male"
+  date:
+      formats:
+        order:
