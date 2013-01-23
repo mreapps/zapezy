@@ -1,5 +1,5 @@
-<p class="welcome_message"><%=t :welcome_message %></p>
-<p class="welcome_message_extra"><%=t :welcome_message_extra %></p>
+<p class="welcome_message"><%= t :welcome_message %></p>
+<p class="welcome_message_extra"><%= t :welcome_message_extra %></p>
 
 <% unless user_signed_in? %>
     <p><%= link_to t("try_without_signing_up"), new_user_session_path %></p>
@@ -9,10 +9,12 @@
     <p><%= link_to t("sign_up"), new_user_registration_path %></p>
 <% end %>
 
-<p><h3 style="color: blue;">TODO: Change profile edit</h3></p>
-<p><h3 style="color: blue;">TODO: Change password edit</h3></p>
-<p><h3 style="color: blue;">TODO: Style flash-messages</h3></p>
+<%= link_to "Refresh EPG", epg_refresh_path %>
+<%= link_to "Display EPG", epg_epglist_path %>
+
+<p><h3 style="color: blue;">TODO: Refresh channel list</h3></p>
 <p><h3 style="color: blue;">TODO: Link to Live television</h3></p>
+<p><h3 style="color: blue;">TODO: Refresh EPG</h3></p>
 <p><h3 style="color: blue;">TODO: EPG-program guide</h3></p>
 <p><h3 style="color: blue;">TODO: Movie and series search across different providers (NRK, TV2, Netflix, HBO)</h3></p>
 <p><h3 style="color: blue;">TODO: Parental control</h3></p>

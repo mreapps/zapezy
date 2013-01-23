@@ -1,0 +1,35 @@
+<h1>Listing programmes</h1>
+
+<table>
+  <tr>
+    <th>Channel</th>
+    <th>Start</th>
+    <th>Stop</th>
+    <th>Title</th>
+    <th>Sub title</th>
+    <th>Desc</th>
+    <th>Date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @programmes.each do |programme| %>
+  <tr>
+    <td><%= programme.channel_id %></td>
+    <td><%= programme.start %></td>
+    <td><%= programme.stop %></td>
+    <td><%= programme.title %></td>
+    <td><%= programme.sub_title %></td>
+    <td><%= programme.desc %></td>
+    <td><%= programme.date %></td>
+    <td><%= link_to 'Show', programme %></td>
+    <td><%= link_to 'Edit', edit_programme_path(programme) %></td>
+    <td><%= link_to 'Destroy', programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Programme', new_programme_path %>

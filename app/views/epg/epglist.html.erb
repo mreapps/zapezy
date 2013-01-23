@@ -1,0 +1,13 @@
+<div class="epglisting">
+  <span class="channelinfo">NRK1 HD</span>
+  <ul class="epglist">
+    <% @programmes.each do |programme| %>
+        <li>
+          <span class="starttime"><%= programme.start.localtime.to_formatted_s(:time) %></span>
+          <span class="endtime"><%= programme.stop.localtime.to_formatted_s(:time) %></span>
+          <span class="programmetitle"><%= programme.title %></span>
+          <!--<span class="programmedesc"><%= programme.desc %></span>-->
+        </li>
+    <% end %>
+  </ul>
+</div>

@@ -11,7 +11,45 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115221051) do
+ActiveRecord::Schema.define(:version => 20130123223851) do
+
+  create_table "channels", :force => true do |t|
+    t.string   "channel_id"
+    t.string   "display_name"
+    t.string   "base_url"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "programmes", :force => true do |t|
+    t.string   "channel_id"
+    t.datetime "start"
+    t.datetime "stop"
+    t.string   "title"
+    t.string   "sub_title"
+    t.string   "desc"
+    t.integer  "date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "programmes", ["channel_id", "start"], :name => "programmes_key", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

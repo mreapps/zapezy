@@ -24,3 +24,7 @@ en:
   date:
       formats:
         order:
+
+  edit: "Edit"
+  home: "Home"
+  program_guide: "Program guide"

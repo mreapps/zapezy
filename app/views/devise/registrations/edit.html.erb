@@ -1,35 +1,73 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="stylized" class="myform">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :id => "form") do |f| %>
+      <h1><%=t :edit %>&nbsp;<%= resource_name.to_s.humanize %></h1>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+      <p><%= t :sign_up_subtitle %></p>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+      <%= devise_error_messages! %>
 
-  <% if resource.class.reconfirmable && resource.unconfirmed_email.present? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <div style="width: 400px;">
+
+        <% @label_width = "width: 150px" %>
+
+        <div>
+          <%= f.label :email, :style => @label_width %>
+          <%= f.email_field :email, :autofocus => true %>
+          <% if resource.class.reconfirmable && resource.unconfirmed_email.present? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+        </div>
+
+        <div>
+          <%= f.label :password,  :style => @label_width%>
+          <%= f.password_field :password, :autocomplete => "off" %>
+        </div>
+
+        <div>
+          <%= f.label :password_confirmation, :style => @label_width %>
+          <%= f.password_field :password_confirmation %>
+        </div>
+
+        <div>
+          <%= f.label :current_password %>
+          <%= f.password_field :current_password %>
+        </div>
+
+        <div class="spacer" style="height: 20px;"></div>
+
+        <div>
+          <%= f.label :firstname, :style => @label_width %>
+          <%= f.text_field :firstname %>
+        </div>
+
+        <div>
+          <%= f.label :lastname, :style => @label_width %>
+          <%= f.text_field :lastname %>
+        </div>
+
+        <div>
+          <%= f.label :gender, :style => @label_width %>
+          <%= f.radio_button :gender, 1, :checked => true, :style => "width: auto; margin-top: 8px; margin-bottom: 5px" %>
+          <%= label :gender_male, t("male"), :style => "width: auto; margin-right: 20px"%>
+          <%= f.radio_button :gender, 2, :style => "width: auto; margin-top: 8px; margin-bottom: 5px" %>
+          <%= label :gender_female, t("female"), :style => "width: auto"%>
+        </div>
+
+        <div class="spacer"></div>
+
+        <div>
+          <%= f.label :birthday, :style => @label_width %>
+          <%= date_select :user, :birthday, :start_year => 1900, :end_year => 2013, :order => [ :year, :month, :day ] %>
+        </div>
+
+        <div class="spacer"></div>
+
+        <%= link_to "Back", :back %>
+
+        <%= f.submit "Update", :class => "button", :style => "left: 95px; top: -20px" %>
+
+        <div class="spacer"></div>
+      </div>
+
   <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <p><%= f.label :firstname %><br />
-  <%= f.text_field :firstname %></p>
-
-  <p><%= f.label :lastname %><br />
-  <%= f.text_field :lastname %></p>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+</div>

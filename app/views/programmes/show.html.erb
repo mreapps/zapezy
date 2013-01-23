@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Channel:</b>
+  <%= @programme.channel_id %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @programme.start %>
+</p>
+
+<p>
+  <b>Stop:</b>
+  <%= @programme.stop %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @programme.title %>
+</p>
+
+<p>
+  <b>Sub title:</b>
+  <%= @programme.sub_title %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @programme.desc %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @programme.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_programme_path(@programme) %> |
+<%= link_to 'Back', programmes_path %>
