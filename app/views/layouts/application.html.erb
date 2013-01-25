@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
   <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
-  <link rel="shortcut icon" href="favicon.ico?v=2"/>
+  <link rel="shortcut icon" href="/favicon.ico?v=2"/>
   <script type="text/javascript">
       $(window).load(function () {
           $(".birthday").datepicker({
@@ -27,7 +27,7 @@
           var width = $(document).width();
           width -= $("#navmenu").width();
           width -= 41;
-          $("#content").attr("style", "min-width: " + width + "px; min-height: " + height + "px");
+          $("#content").attr("style", "min-width: " + width + "px;max-width: " + width + "px; min-height: " + height + "px");
       });
 
       $(document).mouseup(function (e) {

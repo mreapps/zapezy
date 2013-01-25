@@ -210,3 +210,55 @@ body {
     background-color: #FFBABA;
     background-image: url('error.png');
 }
+
+.epglisting {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border: 1px solid #bbbbbb;
+    overflow: hidden;
+    background: #e0e5e0;
+    color: #555555;
+    width: 300px;
+    height: 230px;
+}
+
+.programmes {
+    overflow: scroll;
+    height: 210px;
+}
+
+.epglisting .channelinfo {
+    padding-top: 7px;
+    padding-left: 15px;
+    background: #bbbbbb;
+    color: #555555;
+    font-weight: bold;
+    height: 20px;
+}
+
+.epglisting .programmeinfo {
+    height: 29px;
+}
+
+.epglisting .programmeinfo:hover {
+    background: #cccccc;
+    cursor: pointer;
+}
+
+.epglisting .programmeinfo .separator{
+    height: 1px;
+    background: #ff0000;
+}
+
+.epglisting .programmeinfo span {
+    display: block;
+    padding-top: 7px;
+    padding-left: 15px;
+    white-space: nowrap;
+}
+
+.current {
+    font-weight: bold;
+}

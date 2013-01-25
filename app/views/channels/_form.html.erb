@@ -1,29 +1,42 @@
 <%= form_for(@channel) do |f| %>
-  <% if @channel.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
+    <% if @channel.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@channel.errors.count, "error") %> prohibited this channel from being saved:</h2>
 
-      <ul>
-      <% @channel.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @channel.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :channel_id %>
+      <br/>
+      <%= f.text_field :channel_id %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :channel_id %><br />
-    <%= f.text_field :channel_id %>
-  </div>
-  <div class="field">
-    <%= f.label :display_name %><br />
-    <%= f.text_field :display_name %>
-  </div>
-  <div class="field">
-    <%= f.label :base_url %><br />
-    <%= f.text_field :base_url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :display_name %>
+      <br/>
+      <%= f.text_field :display_name %>
+    </div>
+    <div class="field">
+      <%= f.label :base_url %>
+      <br/>
+      <%= f.text_field :base_url %>
+    </div>
+    <div class="field">
+      <%= f.label :selected %>
+      <br/>
+      <%= f.check_box :selected %>
+    </div>
+    <div class="field">
+      <%= f.label :sort_index%>
+      <br/>
+      <%= f.text_field :sort_index %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123223851) do
+ActiveRecord::Schema.define(:version => 20130124235617) do
 
   create_table "channels", :force => true do |t|
     t.string   "channel_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20130123223851) do
     t.string   "base_url"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "sort_index"
+    t.boolean  "selected"
   end
 
   create_table "delayed_jobs", :force => true do |t|

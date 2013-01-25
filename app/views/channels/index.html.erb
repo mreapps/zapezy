@@ -12,6 +12,7 @@
 
 <% @channels.each do |channel| %>
   <tr>
+    <td><%= channel.sort_index %></td>
     <td><%= channel.channel_id %></td>
     <td><%= channel.display_name %></td>
     <td><%= channel.base_url %></td>

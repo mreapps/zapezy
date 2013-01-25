@@ -2,7 +2,9 @@ class ChannelsController < ApplicationController
   # GET /channels
   # GET /channels.json
   def index
-    @channels = Channel.all
+    @nonull = Channel.where("sort_index is not null").order("sort_index asc")
+    @yesnull = Channel.where("sort_index is null")
+    @channels = @nonull+@yesnull
 
     respond_to do |format|
       format.html # index.html.erb
