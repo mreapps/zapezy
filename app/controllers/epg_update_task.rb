@@ -59,11 +59,10 @@ class EpgUpdateTask
             stop = DateTime.parse(programme[:stop]).to_datetime
           end
 
-          p = Programme.where("channel_id=? and start=?", programme[:channel_id], start)
-          if(p.blank?)
-            p = Programme.new(:channel_id => programme[:channel_id], :start => start)
-          else
-            p = p.first
+          p = Programme.new(:channel_id => programme[:channel_id], :start => start)
+          list = Programme.where("channel_id=? and start=?", p.channel_id, p.start)
+          unless list.first.nil?
+            p = list.first
           end
 
           p.stop = stop

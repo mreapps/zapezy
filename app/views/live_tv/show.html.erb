@@ -1,0 +1,82 @@
+<html>
+<head>
+  <title><%= t :site_name %> :: <%= t :slogan %></title>
+  <%= stylesheet_link_tag "live_tv", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+  <link rel="shortcut icon" href="/favicon.ico?v=2"/>
+
+</head>
+<body>
+<%
+   iframe_source = @selected_channel.live_tv_url
+   if iframe_source.blank?
+     iframe_source = "about:blank"
+   end
+%>
+<iframe src="<%= iframe_source %>" id="tvframe"></iframe>
+<div id="channellist">
+  <ul>
+    <li>
+      <div id="logo">
+        <img src="/assets/logo_new_white.png" width="50px"/>
+        <span class="main_title"><%= link_to t("site_name"), root_path %></span>
+        <span class="sub_title"><%= t :slogan %></span>
+      </div>
+    </li>
+    <% @channels.each do |channel|
+      unless channel.live_tv_url.blank?
+        if channel.id == @selected_channel.id
+          channel_class = "selected"
+        end
+
+    %>
+
+            <li><a href="<%= channel.id %>" class="<%= channel_class %>"><%= channel.display_name %></a></li>
+        <% end
+           end %>
+  </ul>
+</div>
+
+<div id="current_channel_info">
+  <div class="channel_name"><%= @selected_channel.display_name %></div>
+  <div class="current_programme">
+    <%
+       unless @selected_channel.current_programme.nil?
+         current_programme = @selected_channel.current_programme.start.localtime.to_formatted_s(:time)
+         current_programme += " "
+         current_programme += @selected_channel.current_programme.title
+       else
+         current_programme = t("no_program")
+       end
+    %>
+    <div><%= current_programme %></div>
+    <div class="progressbar" value="10">
+      <div class="fill" style="width: <%= @selected_channel.current_progress %>%;"></div>
+    </div>
+  </div>
+  <div class="next_programme">
+    <%
+       unless @selected_channel.next_programme.nil?
+         next_programme = @selected_channel.next_programme.start.localtime.to_formatted_s(:time)
+         next_programme += " "
+         next_programme += @selected_channel.next_programme.title
+       else
+         next_programme = t("no_program")
+       end
+    %>
+    <%= next_programme %>
+  </div>
+</div>
+
+<div id="mini_epg">
+  <ul>
+
+  </ul>
+</div>
+</body>
+</html>
+

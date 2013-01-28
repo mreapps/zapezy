@@ -2,7 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  site_name: "zapezy.com"
+  slogan: "Web-TV made easy"
   sign_in: "Sign In"
   sign_up: "Sign Up"
   try_without_signing_up: "Try it out without signing up"
@@ -28,3 +29,4 @@ en:
   edit: "Edit"
   home: "Home"
   program_guide: "Program guide"
+  live_tv: "Live TV"

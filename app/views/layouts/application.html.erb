@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Zapezy.com :: WebTv made easy</title>
+  <title><%= t :site_name %> :: <%= t :slogan %></title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "form", :media => "all" %>
   <%= javascript_include_tag "application" %>
@@ -41,6 +41,20 @@
       function showUsermenu() {
           $("#usermenu").show();
       }
+
+      function setActiveMenuElement(menuElementId) {
+          $("#navmenu").each(function () {
+              $(this).find("li").each(function () {
+                  id = $(this).attr("id")
+                  if (id == menuElementId) {
+                      $(this).attr("class", "active");
+                  } else {
+                      $(this).attr("class", "");
+                  }
+              });
+          });
+      }
+
   </script>
 </head>
 <body>
@@ -48,10 +62,10 @@
 
 <div id="canvas">
   <div id="header">
-    <div id="logo">
+    <div id="logo" onclick="window.open('<%= root_path %>','_self')">
       <img src="/assets/logo_new_white.png" width="50px"/>
-      <span class="main_title"><%= link_to "zapezy.com", root_path %></span>
-      <span class="sub_title">WebTv made easy</span>
+      <span class="main_title"><%= link_to t("site_name"), root_path %></span>
+      <span class="sub_title"><%= t :slogan %></span>
     </div>
 
     <div id="searchwrapper">
@@ -83,11 +97,10 @@
 
   <div id="navmenu">
     <ul>
-
-      <li class="active"><%= link_to t("home"), root_path %></a></li>
-      <li><a href="#"><span>Live TV</span></a></li>
-      <li><%= link_to t("program_guide"), epg_epglist_path %></li>
-      <li><a href="#"><span>Re-organize channels</span></a></li>
+      <li id="menu_home"><%= link_to t("home"), root_path %></a></li>
+      <li id="menu_live"><%= link_to t("live_tv"), live_tv_path %></li>
+      <li id="menu_epg"><%= link_to t("program_guide"), epg_epglist_path %></li>
+      <li id="menu_reorganize_channels"><a href="#"><span>Re-organize channels</span></a></li>
     </ul>
   </div>
   <div id="content">

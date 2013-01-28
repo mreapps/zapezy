@@ -1,5 +1,10 @@
 <p class="welcome_message"><%= t :welcome_message %></p>
 <p class="welcome_message_extra"><%= t :welcome_message_extra %></p>
+<script type="text/javascript">
+    $(window).load(function () {
+        setActiveMenuElement("menu_home");
+    });
+</script>
 
 <% unless user_signed_in? %>
     <p><%= link_to t("try_without_signing_up"), new_user_session_path %></p>
@@ -10,9 +15,7 @@
 <% end %>
 
 <%= link_to "Refresh EPG", epg_refresh_path %>
-<%= link_to "Display EPG", epg_epglist_path %>
 
-<p><h3 style="color: blue;">TODO: Link to Live television</h3></p>
 <p><h3 style="color: blue;">TODO: Select day in EPG</h3></p>
 <p><h3 style="color: blue;">TODO: Different views for EPG</h3></p>
 <p><h3 style="color: blue;">TODO: Background task for epg-refresh</h3></p>

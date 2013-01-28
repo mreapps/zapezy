@@ -2,9 +2,11 @@
 
 <table>
   <tr>
+    <th>Sort index</th>
     <th>Channel</th>
     <th>Display name</th>
     <th>Base url</th>
+    <th>Live-TV url</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,6 +18,7 @@
     <td><%= channel.channel_id %></td>
     <td><%= channel.display_name %></td>
     <td><%= channel.base_url %></td>
+    <td><%= channel.live_tv_url %></td>
     <td><%= link_to 'Show', channel %></td>
     <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
     <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>

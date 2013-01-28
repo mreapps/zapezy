@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    $(window).load(function () {
+        setActiveMenuElement("menu_epg");
+    });
+</script>
 <% @channels.each do |channel| %>
     <div class="epglisting">
       <div class="channelinfo"><%= channel.display_name %></div>

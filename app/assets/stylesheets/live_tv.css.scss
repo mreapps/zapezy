@@ -1,0 +1,140 @@
+// Place all the styles related to the live_tv controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 0;
+}
+
+#tvframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#channellist {
+  border-right: 1px solid #ffffff;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background: #000000;
+  opacity: 0.8;
+  position: absolute;
+  top: 25px;
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 200px;
+}
+
+#channellist ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#channellist li {
+  border-bottom: 1px solid;
+}
+
+#channellist li a.selected {
+  background: #bbbbbb;
+  color: #000000;
+}
+
+#channellist li a:hover {
+  background: #bbbbbb;
+  color: #000000;
+}
+
+#channellist li a {
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  padding: 5px 5px 5px 15px;
+  width: 100%;
+}
+
+#current_channel_info {
+  position: absolute;
+  opacity: 0.8;
+  left: 300;
+  bottom: 10px;
+  border: 1pt solid #ffffff;
+  background: #000000;
+  color: #ffffff;
+  min-width: 600px;
+}
+
+#current_channel_info .channel_name {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  background: #333333;
+  border-bottom: 1px solid #ffffff;
+}
+
+#current_channel_info .current_programme {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#current_channel_info .next_programme {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+.progressbar {
+  //position: absolute;
+  //top: 55px;
+  //right: 5px;
+  float: right;
+  margin-left: 10px;
+  display: inline-block;
+  border: 1px solid #ffffff;
+  height: 15px;
+  width: 100px;
+  padding: 2px;
+}
+
+.progressbar .fill {
+  background: #ffffff;
+  height: 100%;
+}
+
+#channellist #logo {
+  height: 60px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+#channellist #logo img {
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+#channellist .main_title {
+  position: relative;
+  top: -35px;
+  left: 45px;
+  font-size: 20px;
+}
+
+#channellist .main_title a:hover {
+  background: none;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+#channellist .sub_title {
+  position: relative;
+  top: -42px;
+  left: 60px;
+  font-size: 12px;
+}

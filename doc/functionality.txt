@@ -1,0 +1,8 @@
+user
+ - sign up
+ - sign in
+ - edit profile
+ - log in
+ - log out
+ - edit channel list
+ - forgotten password

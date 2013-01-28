@@ -5,7 +5,6 @@ class EpgController < ApplicationController
   end
 
   def epglist
-    channel_id = "tv2.no"
     now = DateTime.now
     later = DateTime.now + 1
     @channels = Channel.where("selected=:selected", {:selected => true}).order("sort_index asc")
